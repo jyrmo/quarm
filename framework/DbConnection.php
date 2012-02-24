@@ -11,9 +11,7 @@ class DbConnection {
 		$dsn = $config['system'] . ':dbname=' . $config['db'] . ';' . 'host=' . $config['host'];
 		$username = $config['username'];
 		$password = $config['password'];
-		$epdoLocation = Config::get('epdoLocation');
-		require_once $epdoLocation . '/PDOFactory.php';
-		$pdo = PDOFactory::getPdo($dsn, $username, $password);
+		$pdo = new PDO($dsn, $username, $password);
 		$this->pdo = $pdo;
 	}
 	
